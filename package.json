@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_simplest_test",
+  "version": "1.0.0",
+  "description": "As bare-bones as possible testing framework aimed at doing nothing more than acting as a non-breaking assert.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ameobea/nodejs_simplest_test.git"
+  },
+  "author": "Casey Primozic <me@ameo.link>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ameobea/nodejs_simplest_test/issues"
+  },
+  "homepage": "https://github.com/Ameobea/nodejs_simplest_test#readme"
+}
