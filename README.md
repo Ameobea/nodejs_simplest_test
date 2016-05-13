@@ -11,7 +11,7 @@ After each command is run, the package's test command can be run on the results 
 1. Install the package
 2. Require the package at the top of your test script with the following code:
 ```
-var simplest = require("simplest");
+var simplest = require("simplest-test");
 var test = simplest.init("Main Test").test;
 ```
 3. Run your test commands and check the results using the test function.  The `test()` function has one argument with an optional second in the format `test(condition, name)`.  If the second argument isn't given, a numerical value will be given.
