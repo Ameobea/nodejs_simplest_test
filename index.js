@@ -33,9 +33,15 @@ test.done = ()=>{
   for(var i=0;i<test.status.successes.length;i++){
     console.log("  " + test.status.successes[i]);
   }
+  if(test.status.successes.length == 0){
+    console.log("  None!");
+  }
 
   console.log("Failures:");
   for(var i=0;i<test.status.failures.length;i++){
     console.log("  " + test.status.failures[i]);
+  }
+  if(test.status.failures.length == 0){
+    console.log("  None!");
   }
 };
