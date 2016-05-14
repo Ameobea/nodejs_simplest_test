@@ -1,6 +1,6 @@
 {
   "name": "simplest-test",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "As bare-bones as possible testing framework aimed at doing nothing more than acting as a non-breaking assert.",
   "main": "index.js",
   "scripts": {
