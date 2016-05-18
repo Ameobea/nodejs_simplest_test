@@ -10,19 +10,18 @@ After each command is run, the package's test command can be run on the results 
 # Usage
 1. Install the package
 2. Require the package at the top of your test script with the following code:
-```
-var simplest = require("simplest-test");
-var test = simplest.init("Main Test").test;
+```javascript
+var simplest = require('simplest-test');
 ```
 3. Run your test commands and check the results using the test function.  The `test()` function has one argument with an optional second in the format `test(condition, name)`.  If the second argument isn't given, a numerical value will be given.
 
 Example:
-```
+```javascript
 //Makes sure that the result exists
-var res = process(input);
-test(typeof(res) != "undefined");
+simplest('Main Test', function(test) {
+  var res = process(input);
+  test(typeof(res) != "undefined");
+});
 ```
 
-This will have the effect of logging a failed test if the condition is not met.  In cases of hard errors causing the test script to have a fatal error, hang, unexpectedly stop, or oterwise break, go back and fix the code that's causing it before testing again.  Tests shouldn't have the purpose of verifying code quality but instead should serve to catch unexpected glitches that don't cause exceptions.
-
-4. Insert the line `simplest.done()` at the end of your test script which will analyze the results of the tests and display them.
+This will have the effect of logging a failed test if the condition is not met.  In cases of hard errors causing the test script to have a fatal error, hang, unexpectedly stop, or otherwise break, go back and fix the code that's causing it before testing again.  Tests shouldn't have the purpose of verifying code quality but instead should serve to catch unexpected glitches that don't cause exceptions.
