@@ -1,47 +1,39 @@
-"use strict";
+'use strict';
 /*
-Simplest Test Framework
-This framework serves the purpose of an extremely light-weight, uncomplicated,
-and easy to use test framework aimed at speeding up testing and keeping it to a minimum.
-For more information, see README.md
+  Simplest Test Framework
+  This framework serves the purpose of an extremely light-weight, uncomplicated,
+  and easy to use test framework aimed at speeding up testing and keeping it to a minimum.
+  For more information, see README.md
 */
-var test = exports;
 
-test.status = {};
+function printResults(name, results) {
+  console.log(name + ':');
+  results.forEach(function(output) {
+    console.log('  ' + output);
+  });
+  if(results.length === 0) {
+    console.log('  None!');
+  }
+}
 
-test.init = name=>{
-  test.status.name = name;
-  test.status.successes = [];
-  test.status.failures = [];
-  return test;
-};
+function simplest(testName, fn) {
+  var successes = [];
+  var failures = [];
+  fn(function(cond, name) {
+    if(!name) {
+      name = successes.length + failures.length + 1; // ??????
+    }
 
-test.test = (cond, name)=>{
-  if(!name){
-    name = test.status.successes.length + test.status.failures.length + 1;
-  }
+    if(cond) {
+      successes.push(name);
+    } else {
+      failures.push(name);
+    }
+  });
+  console.log('\n====TEST RESULTS====');
 
-  if(cond){
-    test.status.successes.push(name);
-  }else{
-    test.status.failures.push(name);
-  }
-};
+  printResults('Successes', successes)
+  printResults('Failures', failures)
+}
 
-test.done = ()=>{
-  console.log("\n====TEST RESULTS====\nSuccesses:");
-  for(let i=0;i<test.status.successes.length;i++){
-    console.log("  " + test.status.successes[i]);
-  }
-  if(test.status.successes.length === 0){
-    console.log("  None!");
-  }
-
-  console.log("Failures:");
-  for(let i=0;i<test.status.failures.length;i++){
-    console.log("  " + test.status.failures[i]);
-  }
-  if(test.status.failures.length === 0){
-    console.log("  None!");
-  }
-};
+module.exports = simplest;
